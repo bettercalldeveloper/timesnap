@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 active:scale-95;
+  }
+  
+  .btn-sm {
+    @apply px-2 py-1 text-sm;
+  }
+  
+  .btn-blue {
+    @apply bg-blue-600 hover:bg-blue-700 text-white;
+  }
+  
+  .btn-gray {
+    @apply bg-gray-800 hover:bg-gray-700 text-white;
+  }
+  
+  .btn-green {
+    @apply bg-green-600 hover:bg-green-700 text-white;
+  }
+  
+  .btn-yellow {
+    @apply bg-yellow-600 hover:bg-yellow-700 text-white;
+  }
+  
+  .btn-red {
+    @apply bg-red-600 hover:bg-red-700 text-white;
+  }
+  
+  .card {
+    @apply bg-gray-950 rounded-lg border border-gray-900 p-4 transition-all;
+  }
+  
+  .input {
+    @apply px-3 py-2 bg-black border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors;
+  }
+}
+
+/* Simple animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-950;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-800 rounded;
+}
