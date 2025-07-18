@@ -55,12 +55,12 @@ function DataManager() {
 
       <motion.div variants={item} className="card">
         <h3 className="font-medium mb-4">Export Data</h3>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => exportJSON(state)} 
-            className="btn btn-blue"
+            className="btn btn-blue text-sm"
           >
             <FileJson size={16} />
             Export JSON
@@ -69,7 +69,7 @@ function DataManager() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => exportCSV(state.timers, state.hourlyRate)} 
-            className="btn btn-green"
+            className="btn btn-green text-sm"
           >
             <FileSpreadsheet size={16} />
             Export CSV

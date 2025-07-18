@@ -24,34 +24,34 @@ function AppContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className=" bg-black text-white">
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="border-b border-gray-900 bg-gray-950"
+        className="border-b border-gray-900 bg-gray-950 "
       >
-        <div className="max-w-[90%] mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
+        <div className="container md:max-w-[90%] md:mx-auto px-4 sm:px-6 py-4">
+          <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="">
-                <img src={logo} className="h-10" alt="" />
+                <img src={logo} className="h-8 sm:h-10" alt="" />
               </div>
               <div>
-                <h1 className="text-xl font-bold">TimeSnap</h1>
-                <p className="text-sm text-gray-400">
+                <h1 className="text-lg sm:text-xl font-bold">TimeSnap</h1>
+                <p className="text-xs sm:text-sm text-gray-400 hidden sm:block">
                   Track hours. Bill clients. Get paid.
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
               <AnimatePresence>
                 {activeTimers > 0 && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
-                    className="text-sm"
+                    className="text-xs sm:text-sm"
                   >
                     <span className="text-gray-400">Active:</span>{" "}
                     <span className="text-green-400 font-medium">
@@ -66,28 +66,28 @@ function AppContent() {
                 onClick={() =>
                   dispatch({ type: "SET_FOCUS_MODE", enabled: true })
                 }
-                className="btn btn-gray"
+                className="btn btn-gray text-sm"
               >
-                <Maximize size={18} />
-                Focus
+                <Maximize size={16} className="sm:w-[18px] sm:h-[18px]" />
+                <span className="">Focus</span>
               </motion.button>
             </div>
           </div>
         </div>
       </motion.header>
 
-      <div className="max-w-[90%] mx-auto px-6 py-4">
-        <nav className="flex gap-4 mt-4 mb-5">
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 py-4">
+        <nav className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-4 mb-8">
           {navItems.map(({ id, label, icon: Icon }) => (
             <motion.button
               key={id}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setView(id)}
-              className={`btn ${view === id ? "btn-blue" : "btn-gray"}`}
+              className={`btn text-sm ${view === id ? "btn-blue" : "btn-gray"}`}
             >
               <Icon size={16} />
-              {label}
+              <span className="hidden sm:inline">{label}</span>
             </motion.button>
           ))}
         </nav>
@@ -143,7 +143,7 @@ function AppContent() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="mt-8 p-4 bg-gray-950 rounded-lg border border-gray-900"
+          className="mt-8 p-4 bg-gray-950 rounded-lg border border-gray-900 hidden md:block"
         >
           <h3 className="font-medium mb-2">Keyboard Shortcuts</h3>
           <div className="text-sm text-gray-400 space-y-1">

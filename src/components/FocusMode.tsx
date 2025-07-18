@@ -48,7 +48,7 @@ function FocusMode() {
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="text-6xl font-mono font-bold text-white mb-4"
+              className="text-4xl sm:text-5xl md:text-6xl font-mono font-bold text-white mb-4"
             >
               {formatTime(currentTime)}
             </motion.div>
@@ -60,7 +60,7 @@ function FocusMode() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="text-xl text-gray-400 mb-2"
+                className="text-lg sm:text-xl text-gray-400 mb-2"
               >
                 {currentTimer ? currentTimer.name : 'No active timer'}
               </motion.div>
@@ -92,7 +92,7 @@ function FocusMode() {
                   >
                     <ChevronLeft size={24} />
                   </motion.button>
-                  <span className="text-gray-400">
+                  <span className="text-gray-400 text-sm sm:text-base">
                     {currentIndex + 1} of {runningTimers.length}
                   </span>
                   <motion.button
@@ -111,10 +111,11 @@ function FocusMode() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => dispatch({ type: 'SET_FOCUS_MODE', enabled: false })}
-              className="btn btn-gray mx-auto"
+              className="btn btn-gray mx-auto text-sm sm:text-base"
             >
-              <Minimize size={20} />
-              Exit Focus Mode
+              <Minimize size={18} className="sm:w-5 sm:h-5" />
+              <span className="hidden sm:inline">Exit Focus Mode</span>
+              <span className="sm:hidden">Exit</span>
             </motion.button>
           </motion.div>
         </motion.div>

@@ -36,7 +36,7 @@ function Analytics() {
     >
       <motion.h2 variants={item} className="text-xl font-bold mb-4">Analytics</motion.h2>
 
-      <motion.div variants={item} className="grid md:grid-cols-2 gap-4">
+      <motion.div variants={item} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <motion.div
           whileHover={{ scale: 1.02 }}
           className="card"
@@ -82,7 +82,7 @@ function Analytics() {
         </motion.div>
       </motion.div>
 
-      <motion.div variants={item} className="grid md:grid-cols-2 gap-4">
+      <motion.div variants={item} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <motion.div
           whileHover={{ scale: 1.02 }}
           className="card"

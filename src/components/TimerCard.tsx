@@ -54,7 +54,7 @@ function TimerCard({ timer, isCompleted = false }: TimerCardProps) {
       } ${isCompleted ? "border-green-900 bg-gray-950/50" : ""}`}
     >
       <div className="flex justify-between mb-3">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <motion.div
             animate={{
               scale: timer.isRunning ? [1, 1.2, 1] : 1,
@@ -63,12 +63,12 @@ function TimerCard({ timer, isCompleted = false }: TimerCardProps) {
               duration: 2,
               repeat: timer.isRunning ? Infinity : 0,
             }}
-            className="w-3 h-3 rounded-full"
+            className="w-3 h-3 rounded-full flex-shrink-0"
             style={{ backgroundColor: timer.color }}
           />
-          <div>
-            <h3 className="font-medium">{timer.name}</h3>
-            <p className="text-sm text-gray-400">{timer.project}</p>
+          <div className="min-w-0">
+            <h3 className="font-medium text-sm sm:text-base truncate">{timer.name}</h3>
+            <p className="text-xs sm:text-sm text-gray-400 truncate">{timer.project}</p>
             {isCompleted && timer.completedAt && (
               <motion.p
                 initial={{ opacity: 0 }}
@@ -84,7 +84,7 @@ function TimerCard({ timer, isCompleted = false }: TimerCardProps) {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => dispatch({ type: "DELETE_TIMER", id: timer.id })}
-          className="text-gray-500 hover:text-red-400 transition-colors"
+          className="text-gray-500 hover:text-red-400 transition-colors flex-shrink-0"
         >
           <X size={16} />
         </motion.button>
@@ -159,7 +159,7 @@ function TimerCard({ timer, isCompleted = false }: TimerCardProps) {
                 duration: 1,
                 repeat: timer.isRunning ? Infinity : 0,
               }}
-              className={`text-3xl font-mono font-bold text-center ${
+              className={`text-2xl sm:text-3xl font-mono font-bold text-center ${
                 timer.isRunning ? "text-blue-400" : ""
               }`}
             >
@@ -188,30 +188,30 @@ function TimerCard({ timer, isCompleted = false }: TimerCardProps) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => dispatch({ type: "START_TIMER", id: timer.id })}
-                className="btn btn-blue"
+                className="btn btn-blue text-sm"
               >
-                <Play size={16} />
-                Start
+                <Play size={14} className="sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Start</span>
               </motion.button>
             ) : (
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => dispatch({ type: "PAUSE_TIMER", id: timer.id })}
-                className="btn btn-yellow"
+                className="btn btn-yellow text-sm"
               >
-                <Pause size={16} />
-                Pause
+                <Pause size={14} className="sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Pause</span>
               </motion.button>
             )}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => dispatch({ type: "STOP_TIMER", id: timer.id })}
-              className="btn btn-red"
+              className="btn btn-red text-sm"
             >
-              <Square size={16} />
-              Stop
+              <Square size={14} className="sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">Stop</span>
             </motion.button>
           </>
         )}

@@ -43,7 +43,7 @@ function TimerList() {
         className="card"
       >
         <h2 className="text-lg font-medium mb-4">Add New Timer</h2>
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <input
             type="text"
             placeholder="Timer name"
@@ -64,7 +64,7 @@ function TimerList() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleAdd} 
-            className="btn btn-blue"
+            className="btn btn-blue w-full sm:w-auto"
           >
             <Plus size={16} />
             Add
@@ -98,7 +98,7 @@ function TimerList() {
                   variants={container}
                   initial="hidden"
                   animate="show"
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
                 >
                   {activeTimers.map(timer => (
                     <motion.div key={timer.id} variants={item} layout>
@@ -135,7 +135,7 @@ function TimerList() {
                   variants={container}
                   initial="hidden"
                   animate="show"
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
                 >
                   {completedTimers.map(timer => (
                     <motion.div key={timer.id} variants={item} layout>

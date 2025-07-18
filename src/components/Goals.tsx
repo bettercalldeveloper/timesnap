@@ -58,7 +58,7 @@ function Goals() {
               type="number"
               value={daily}
               onChange={(e) => setDaily(Number(e.target.value))}
-              className="input w-full"
+              className="input w-full max-w-xs"
               min="1"
               max="24"
               step="0.5"
@@ -74,7 +74,7 @@ function Goals() {
               type="number"
               value={weekly}
               onChange={(e) => setWeekly(Number(e.target.value))}
-              className="input w-full"
+              className="input w-full max-w-xs"
               min="1"
               max="168"
               step="1"
@@ -103,7 +103,7 @@ function Goals() {
             type="number"
             value={rate}
             onChange={(e) => setRate(Number(e.target.value))}
-            className="input w-full"
+            className="input w-full max-w-xs"
             min="0"
             step="5"
             placeholder="50"
@@ -118,7 +118,7 @@ function Goals() {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         onClick={handleSave} 
-        className="btn btn-blue w-full"
+        className="btn btn-blue w-full sm:w-auto"
       >
         Save Settings
       </motion.button>
